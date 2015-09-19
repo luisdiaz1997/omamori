@@ -1,0 +1,31 @@
+def contra(n):
+    x = 0
+    while formato(x) != n:
+        print formato(x)
+        x += 1
+    print "The word has been match and it is", formato(x)
+def formato(n):
+    numero = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+    letras = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+    letras = letras.split()
+    che = list()
+    nuevo = n
+    while nuevo != 0:
+        che.append(nuevo%36)
+        nuevo = nuevo / 36
+    counterChe = 0
+    for x in che:
+        counterList = 0
+        if x >= 10:
+            for lol in numero:
+                if x == lol:
+                    che[counterChe] = letras[counterList]
+                    break
+                counterList += 1
+        counterChe +=1
+    stronk = ""
+    counter = len(che)
+    for x in che:
+        stronk = stronk + str(che[counter-1])
+        counter -=1
+    return stronk
